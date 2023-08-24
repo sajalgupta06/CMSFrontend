@@ -44,8 +44,13 @@
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions align="center">
+<!-- <mat-dialog-actions align="center">
     <button mat-raised-buttton color="primary" type="submit" (click)="handleSubmit()"
-    [disabled]="(signupForm.valid && signupForm.dirty)">Signup</button>
+    [disabled]="!(signupForm.valid && signupForm.dirty)">Signup</button>
     <button mat-raised-buttom color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions> -->
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()"
+    [disabled]="!(signupForm.valid && signupForm.dirty)">Signup</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
 </mat-dialog-actions>

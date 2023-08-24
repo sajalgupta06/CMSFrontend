@@ -28,6 +28,7 @@ import { SignupComponent } from './signup/signup.component';
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent
+
    ],
   imports: [
     BrowserModule,
@@ -38,8 +39,7 @@ import { SignupComponent } from './signup/signup.component';
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
-    HttpClientModule,
-    
+    HttpClientModule
 
   ],
   providers: [],

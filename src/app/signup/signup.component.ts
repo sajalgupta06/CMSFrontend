@@ -4,7 +4,7 @@ import { Route, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { SnackbarService } from '../services/snackbar.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { NgxUiLoaderComponent, NgxUiLoaderService } from 'ngx-ui-loader';
+// import { NgxUiLoaderComponent, NgxUiLoaderService } from 'ngx-ui-loader';
 import { GlobalConstants } from '../shared/global-constants';
 
 @Component({
@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit {
     private userService:UserService,
     private snackbarService:SnackbarService,
     private dialogRef:MatDialogRef<SignupComponent>,
-    private ngxService: NgxUiLoaderService ) { }
+    // private ngxService: NgxUiLoaderService
+     ) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
   }
 
   handleSubmit(){
-    this.ngxService.start;
+    // this.ngxService.start;
     var formData = this.signupForm.value;
     var data = {
       name : formData.name,

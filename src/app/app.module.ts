@@ -16,9 +16,6 @@ import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 
-
-
-
 @NgModule({
   declarations: [	
     AppComponent,

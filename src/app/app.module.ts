@@ -15,10 +15,10 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
-import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 import {NgxUiLoaderModule,NgxUiLoaderConfig,SPINNER,PB_DIRECTION} from "ngx-ui-loader";
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text:"Loading...",

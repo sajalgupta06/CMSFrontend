@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
 import { SnackbarService } from '../services/snackbar.service';
 import { GlobalConstants } from '../shared/global-constants';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
 	selector: 'app-dashboard',

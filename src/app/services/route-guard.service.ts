@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
 import jwt_decode from "jwt-decode";
 import { error } from 'console';
+import { GlobalConstants } from '../shared/global-constants';
 
 @Injectable({
   providedIn: 'root'

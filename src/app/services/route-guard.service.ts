@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
 import jwt_decode from "jwt-decode";
 import { error } from 'console';
+import { GlobalConstants } from '../shared/global-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class RouteGuardService {
         if(this.auth.isAuthenticated() && checkRole){
           return true;
         }
-        this.snackbarService.openSnackBar(GlobalConstants.unauthorized,GlobalConstants:error);
+        this.snackbarService.openSnackBar(GlobalConstants.unauthorized,GlobalConstants.error);
         this.router.navigate(['/cafe/dashboard']);
         return false;
       }

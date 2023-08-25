@@ -16,6 +16,23 @@ import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
+import {NgxUiLoaderModule,NgxUiLoaderConfig,SPINNER,PB_DIRECTION} from "ngx-ui-loader";
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  text:"Loading...",
+  textColor:"#FFFFFF",
+  textPosition:"center-center",
+  pbColor:"red",
+  bgsColor:"red",
+  fgsColor:"red",
+  fgsType:SPINNER.ballSpinClockwise,
+  fgsSize:100,
+  pbDirection:PB_DIRECTION.leftToRight,
+  pbThickness:5
+}
+
 
 @NgModule({
   declarations: [	
@@ -25,7 +42,10 @@ import { TokenInterceptorInterceptor } from './services/token-interceptor.interc
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotPasswordComponent,
+    LoginComponent
+
    ],
   imports: [
     BrowserModule,
@@ -36,8 +56,9 @@ import { TokenInterceptorInterceptor } from './services/token-interceptor.interc
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
-    HttpClientModule
-
+    HttpClientModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+  
   ],
   providers: [HttpClientModule,{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorInterceptor,multi:true}],
   bootstrap: [AppComponent]

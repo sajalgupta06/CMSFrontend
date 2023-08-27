@@ -1,30 +1,27 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryService {
-  url=environment.apiUrl;
+  url: string = environment.apiURL;
+  jsonHeader = {
+    headers: new HttpHeaders().set('Content-Type', 'application/json'),
+  };
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  add(data:any){
-    return this.httpClient.post(this.url+
-      "/category/add",data,{
-        headers:new HttpHeaders().set('Content-Type',"application/json")
-      })
+  add(data: any) {
+    return this.http.post(`${this.url}/category/add`, data, this.jsonHeader);
   }
 
-  update(data:any){
-    return this.httpClient.patch(this.url+
-      "/category/update",data,{
-        headers:new HttpHeaders().set('Content-Type',"application/json")
-      })
+  update(data: any) {
+    return this.http.patch(`${this.url}/category/update`, data, this.jsonHeader);
   }
 
-  getCategorys(){
-    return this.httpClient.get(this.url+"/category/get");
+  getCategories() {
+    return this.http.get(`${this.url}/category/get/`);
   }
 }

@@ -7,31 +7,30 @@ import { ConfirmationComponent } from 'src/app/material-component/dialog/confirm
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
 export class AppHeaderComponent {
   role: any;
-  constructor(private router: Router,
-    private dialog: MatDialog) {
+  constructor(private router: Router, private dialog: MatDialog) {}
 
-  }
-
-  logout(){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.data={
-      message:'Logout'
+  logout() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Logout',
     };
-    const dialogRef=this.dialog.open(ConfirmationComponent,dialogConfig);
-    const sub=dialogRef.componentInstance.onEmitStatusChange.subscribe((user)=>{
-      dialogRef.close();
-      localStorage.clear();
-      this.router.navigate(['/']);
-    })
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const sub = dialogRef.componentInstance.onEmitStatusChange.subscribe(
+      (user: any) => {
+        dialogRef.close();
+        localStorage.clear();
+        this.router.navigate(['/']);
+      }
+    );
   }
 
-  changePassword(){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.width="550px";
-    this.dialog.open(ChangePasswordComponent,dialogConfig);
+  changePassword() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '550px';
+    const dialogRef = this.dialog.open(ChangePasswordComponent, dialogConfig);
   }
 }

@@ -17,28 +17,31 @@ const routes: Routes = [
       },
       {
         path: '',
-        loadChildren:
-          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule),
-          canActivate:[RouteGuardService],
-          data:{
-            expectedRole:['admin','user']
-          }
+        loadChildren: () =>
+          import('./material-component/material.module').then(
+            (m) => m.MaterialComponentsModule
+          ),
+        canActivate: [RouteGuardService],
+        data: {
+          expectedRole: ['admin', 'user'],
+        },
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-        canActivate:[RouteGuardService],
-          data:{
-            expectedRole:['admin','user']
-          }
-      }
-    ]
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+        canActivate: [RouteGuardService],
+        data: {
+          expectedRole: ['admin', 'user'],
+        },
+      },
+    ],
   },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

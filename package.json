@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && ng serve ",
+    "start": " set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -22,11 +22,10 @@
     "@angular/platform-browser": "~11.2.10",
     "@angular/platform-browser-dynamic": "~11.2.10",
     "@angular/router": "~11.2.10",
-
-    "ngx-ui-loader": "^11.0.0",
-
+    "@types/file-saver": "^2.0.5",
+    "file-saver": "^2.0.5",
     "jwt-decode": "^3.1.2",
-
+    "ngx-ui-loader": "^10.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

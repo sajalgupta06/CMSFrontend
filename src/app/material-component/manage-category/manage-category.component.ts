@@ -11,76 +11,84 @@ import { CategoryComponent } from '../dialog/category/category.component';
 @Component({
   selector: 'app-manage-category',
   templateUrl: './manage-category.component.html',
-  styleUrls: ['./manage-category.component.scss']
+  styleUrls: ['./manage-category.component.scss'],
 })
 export class ManageCategoryComponent implements OnInit {
-  displayedColumns:string[]=['name','edit'];
-  dataSource:any;
-  responseMessage:any;
-  constructor(private categoryService:CategoryService,
-    private ngxSrvice:NgxUiLoaderService,
-    private dialog:MatDialog,
-    private snackbarService:SnackbarService,
-    private router:Router) { }
+  displayedColumns: string[] = ['name', 'edit'];
+  dataSource: any;
+  responseMessage: any;
+
+  constructor(
+    private categoryService: CategoryService,
+    private ngxService: NgxUiLoaderService,
+    private dialog: MatDialog,
+    private snackBar: SnackbarService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.ngxSrvice.start();
+    this.ngxService.start();
     this.tableData();
   }
-  tableData(){
-    this.categoryService.getCategorys().subscribe((response:any)=>{
-      this.ngxSrvice.stop();
-      this.dataSource=new MatTableDataSource(response);
-    },(error:any)=>{
-      this.ngxSrvice.stop();
-      if(error.error?.message){
-        this.responseMessage=error.error?.message;
+
+  tableData() {
+    this.categoryService.getCategories().subscribe(
+      (resp: any) => {
+        this.ngxService.stop();
+        this.dataSource = new MatTableDataSource(resp.data);
+        console.log(resp);
+      },
+      (error) => {
+        this.ngxService.stop();
+        if (error.error?.message) {
+          this.responseMessage = error.error?.message;
+        } else {
+          this.responseMessage = GlobalConstants.genericError;
+        }
+        this.snackBar.openSnackBar(this.responseMessage, GlobalConstants.error);
       }
-      else{
-        this.responseMessage=GlobalConstants.genericError;
-      }
-      this.snackbarService.openSnackBar(this.responseMessage,GlobalConstants.error);
-    })
+    );
   }
 
-  applyFilter(event:Event){
-    const filterValue=(event.target as HTMLInputElement).value;
-    this.dataSource.filter=filterValue.trim().toLowerCase();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  handleAddAction(){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.data={
-      action:'Add'
-    }
-    dialogConfig.width="850px";
-    const dialogRef=this.dialog.open(CategoryComponent,dialogConfig);
-    this.router.events.subscribe(()=>{
+  handleAddAction() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      action: 'Add',
+    };
+    dialogConfig.width = '850px';
+    const dialogRef = this.dialog.open(CategoryComponent, dialogConfig);
+    this.router.events.subscribe(() => {
       dialogRef.close();
     });
-    const sub=dialogRef.componentInstance.onAddCategory.subscribe(
-      (response)=>{
+
+    const sub = dialogRef.componentInstance.onAddCategory.subscribe(
+      (resp: any) => {
         this.tableData();
       }
-    )
+    );
   }
 
-  handleEditAction(values:any){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.data={
-      action:'Edit',
-      data:values
-    }
-    dialogConfig.width="850px";
-    const dialogRef=this.dialog.open(CategoryComponent,dialogConfig);
-    this.router.events.subscribe(()=>{
+  handleEditAction(value: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      action: 'Edit',
+      data: value,
+    };
+    dialogConfig.width = '850px';
+    const dialogRef = this.dialog.open(CategoryComponent, dialogConfig);
+    this.router.events.subscribe(() => {
       dialogRef.close();
     });
-    const sub=dialogRef.componentInstance.onEditCategory.subscribe(
-      (response)=>{
+
+    const sub = dialogRef.componentInstance.onEditCategory.subscribe(
+      (resp: any) => {
         this.tableData();
       }
-    )
+    );
   }
-
 }

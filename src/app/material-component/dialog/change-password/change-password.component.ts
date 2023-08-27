@@ -52,7 +52,7 @@ export class ChangePasswordComponent implements OnInit {
       this.responseMessage=response?.message;
       this.dialogRef.close();
       this.snakbarService.openSnackBar(this.responseMessage,"succes");
-    }(error)=>{
+    },(error)=>{
       console.log(error);
       this.ngxService.stop();
       if(error.error?.message){

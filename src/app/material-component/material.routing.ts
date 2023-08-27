@@ -7,7 +7,8 @@ import { RouteGuardService } from '../services/route-guard.service';
 
 export const MaterialRoutes: Routes = [
     {
-        path:'product',
+        
+        path:'category',
         component: ManageProductComponent,
         canActivate:[RouteGuardService],
         data:{

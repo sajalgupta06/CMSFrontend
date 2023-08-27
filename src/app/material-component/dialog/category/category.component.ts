@@ -13,6 +13,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 export class CategoryComponent implements OnInit {
   onAddCategory=new EventEmitter();
   onEditCategory=new EventEmitter();
+  categoryForm: any=FormGroup;
   dialogAction:any=FormGroup;
   action:any="Add";
   responseMessage:any;

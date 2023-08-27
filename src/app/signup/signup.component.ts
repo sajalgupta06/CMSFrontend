@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
     var data = {
       name: formData.name,
       email: formData.email,
-      phone: formData.contactNumber,
+      contactNumber: formData.contactNumber,
       password: formData.password,
     };
 
@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
         this.dialogRef.close();
         this.responseMessage = resp?.message;
         this.snackBar.openSnackBar(this.responseMessage, '');
-        this.router.navigate(['/']);
+        this.router.navigate(['/']);  
       },
       (error) => {
         this.ngxService.stop();

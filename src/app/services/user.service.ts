@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   signup(data: any) {
-    return this.http.post(`${this.url}/user/signup`, data, this.jsonHeader);
+    return this.http.post(`${this.url}/users`, data, this.jsonHeader);
   }
 
   forgotPassword(data: any) {
@@ -26,7 +26,8 @@ export class UserService {
   }
 
   login(data: any) {
-    return this.http.post(`${this.url}/user/login`, data, this.jsonHeader);
+    console.log(data)
+    return this.http.post(`${this.url}/users/login`, {...data}, this.jsonHeader);
   }
 
   checkToken() {

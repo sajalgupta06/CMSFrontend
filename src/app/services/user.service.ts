@@ -43,10 +43,14 @@ export class UserService {
   }
 
   getUsers() {
-    return this.http.get(`${this.url}/user/get`);
+    return this.http.get(`${this.url}/users`);
   }
 
   update(data: any) {
     return this.http.patch(`${this.url}/user/update`, data, this.jsonHeader);
+  }
+
+  updateStatus(data: any) {
+    return this.http.put(`${this.url}/users/updateStatus`, data, this.jsonHeader);
   }
 }

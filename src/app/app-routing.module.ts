@@ -23,7 +23,7 @@ const routes: Routes = [
           ),
         canActivate: [RouteGuardService],
         data: {
-          expectedRole: ['admin', 'user'],
+          expectedRole: ['ADMIN'],
         },
       },
       {
@@ -32,7 +32,17 @@ const routes: Routes = [
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
         canActivate: [RouteGuardService],
         data: {
-          expectedRole: ['admin', 'user'],
+          expectedRole: ['ADMIN'],
+        },
+      },
+
+      {
+        path: 'client',
+        loadChildren: () =>
+          import('./client/client.module').then((m) => m.ClientModule),
+        canActivate: [RouteGuardService],
+        data: {
+          expectedRole: ['USER'],
         },
       },
     ],

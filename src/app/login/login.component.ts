@@ -6,6 +6,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SnackbarService } from '../services/snackbar.service';
 import { UserService } from '../services/user.service';
 import { GlobalConstants } from '../shared/global-constants';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -50,10 +51,22 @@ export class LoginComponent implements OnInit {
         console.log(resp)
         this.responseMessage = resp?.message;
       
-        localStorage.setItem('token', JSON.stringify(resp.token))
-     
+        localStorage.setItem('token', resp.token)
+        
         this.snackBar.openSnackBar(this.responseMessage, '');
-        this.router.navigate(['/cafe/dashboard']);
+       
+        var tokenPayload:any = jwtDecode(resp.token);
+
+          console.log("Token Role",tokenPayload)
+          if(tokenPayload.Role=="USER")
+          {
+            this.router.navigate(['/cafe/client']);
+
+          }
+          else{
+            this.router.navigate(['/cafe/dashboard']);
+
+          }
       },
       (error) => {
         this.ngxService.stop();

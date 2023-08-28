@@ -21,7 +21,6 @@ import {
   PB_DIRECTION,
   SPINNER,
 } from 'ngx-ui-loader';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 import { AccordionLinkDirective } from './shared/accordion';
@@ -48,7 +47,6 @@ const ngx_ui_loader_config: NgxUiLoaderConfig = {
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
-    ForgotPasswordComponent,
     LoginComponent,
   ],
   imports: [

@@ -92,4 +92,25 @@ export class ManageCategoryComponent implements OnInit {
       }
     );
   }
+
+  handleDeleteAction(id:number)
+  {
+    this.categoryService.delete(id).subscribe(
+      (resp: any) => {
+        this.ngxService.stop();
+        this.tableData();
+        this.responseMessage = resp?.message;
+        this.snackBar.openSnackBar(this.responseMessage, 'success');
+      },
+      (error) => {
+        this.ngxService.stop();
+        if (error.error?.message) {
+          this.responseMessage = error.error?.message;
+        } else {
+          this.responseMessage = GlobalConstants.genericError;
+        }
+        this.snackBar.openSnackBar(this.responseMessage, GlobalConstants.error);
+      }
+    );
+  }
 }

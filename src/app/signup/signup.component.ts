@@ -15,7 +15,7 @@ import { GlobalConstants } from '../shared/global-constants';
 export class SignupComponent implements OnInit {
   signupForm: any = FormGroup;
   responseMessage!: string;
-
+  roles:string[]= ["ADMIN","USER"]
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -43,6 +43,7 @@ export class SignupComponent implements OnInit {
         ],
       ],
       password: [null, [Validators.required, Validators.minLength(7)]],
+      role: [null, Validators.required],
     });
   }
 
@@ -54,8 +55,9 @@ export class SignupComponent implements OnInit {
       email: formData.email,
       contactNumber: formData.contactNumber,
       password: formData.password,
+      role:formData.role
     };
-
+    
     this.userService.signup(data).subscribe(
       (resp: any) => {
         this.ngxService.stop();

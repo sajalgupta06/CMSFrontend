@@ -73,6 +73,29 @@
           >
         </mat-error>
       </mat-form-field>
+
+
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option
+              *ngFor="let role of roles"
+              [value]="role"
+              >{{ role }}</mat-option
+            >
+          </mat-select>
+          <mat-error
+          *ngIf="signupForm.controls.role.touched && signupForm.controls.role.invalid"
+          >
+            <span *ngIf="signupForm.controls.role.errors.required"
+              >This field is mandatory</span
+            >
+          </mat-error>
+        </mat-form-field>
+
+      
+   
+
     </div>
   </form>
 </mat-dialog-content>

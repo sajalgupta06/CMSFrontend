@@ -42,7 +42,8 @@ export class ManageProductComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (resp: any) => {
         this.ngxService.stop();
-        this.dataSource = new MatTableDataSource(resp.data);
+        this.dataSource = new MatTableDataSource(resp);
+        console.log("Product Table ********",this.dataSource)
       },
       (error) => {
         this.ngxService.stop();
@@ -135,13 +136,9 @@ export class ManageProductComponent implements OnInit {
     );
   }
 
-  onChange(status: any, id: any) {
-    let data = {
-      status: status.toString(),
-      id,
-    };
+  onChange( id: any) {
 
-    this.productService.updateStatus(data).subscribe(
+    this.productService.updateStatus(id).subscribe(
       (resp: any) => {
         this.ngxService.stop();
         this.responseMessage = resp?.message;

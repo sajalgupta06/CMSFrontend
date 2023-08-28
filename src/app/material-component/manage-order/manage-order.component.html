@@ -1,6 +1,6 @@
 <mat-card>
   <b>
-    <span>Manage Orders</span>
+    <!-- <span>Manage Orders</span>
     <button
       mat-flat-button
       color="primary"
@@ -227,7 +227,8 @@
       Total Amount: {{ totalAmount }}
     </button>
   </div>
-</mat-card>
+</mat-card> -->
+
 
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -257,7 +258,7 @@
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <th mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element; let i = index" class="action-link">
         <button
           mat-icon-button

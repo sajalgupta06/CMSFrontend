@@ -14,20 +14,20 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   add(data: any) {
-    return this.http.post(`${this.url}/product/add`, data, this.jsonHeader);
+    return this.http.post(`${this.url}/products`, data, this.jsonHeader);
   }
 
   update(data: any) {
-    return this.http.patch(`${this.url}/product/update`, data, this.jsonHeader);
+    return this.http.put(`${this.url}/products`, data, this.jsonHeader);
   }
 
   getProducts() {
-    return this.http.get(`${this.url}/product/get`);
+    return this.http.get(`${this.url}/products`);
   }
 
   updateStatus(data: any) {
-    return this.http.patch(
-      `${this.url}/product/updateStatus`,
+    return this.http.put(
+      `${this.url}/products/updateStatus`,
       data,
       this.jsonHeader
     );
@@ -35,7 +35,7 @@ export class ProductService {
 
   delete(id: any) {
     return this.http.delete(
-      `${this.url}/product/delete/${id}`,
+      `${this.url}/products/${id}`,
       this.jsonHeader
     );
   }

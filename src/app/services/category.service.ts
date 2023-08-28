@@ -18,10 +18,18 @@ export class CategoryService {
   }
 
   update(data: any) {
-    return this.http.patch(`${this.url}/category/update`, data, this.jsonHeader);
+    return this.http.put(`${this.url}/categories`, data, this.jsonHeader);
   }
 
   getCategories() {
     return this.http.get(`${this.url}/categories`);
   }
+
+  delete(id: any) {
+    return this.http.delete(
+      `${this.url}/categories/${id}`,
+      this.jsonHeader
+    );
+  }
+
 }

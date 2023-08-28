@@ -30,7 +30,7 @@ export class ManageUserComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (resp: any) => {
         this.ngxService.stop();
-        this.dataSource = new MatTableDataSource(resp.data);
+        this.dataSource = new MatTableDataSource(resp);
       },
       (error) => {
         this.ngxService.stop();
@@ -49,14 +49,11 @@ export class ManageUserComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  handleChangeAction(status: any, id: any) {
+  handleChangeAction( id: any) {
     this.ngxService.start();
-    let data = {
-      status: status.toString(),
-      id: id,
-    };
+   
 
-    this.userService.update(data).subscribe(
+    this.userService.updateStatus(id).subscribe(
       (resp: any) => {
         this.ngxService.stop();
         this.responseMessage = resp?.message;

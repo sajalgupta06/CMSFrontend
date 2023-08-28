@@ -41,14 +41,17 @@ export class LoginComponent implements OnInit {
     var data = {
       email: formData.email,
       password: formData.password,
-    };
+    };  
 
     this.userService.login(data).subscribe(
       (resp: any) => {
         this.ngxService.stop();
         this.dialogRef.close();
+        console.log(resp)
         this.responseMessage = resp?.message;
-        localStorage.setItem('token', resp?.token)
+      
+        localStorage.setItem('token', JSON.stringify(resp.token))
+     
         this.snackBar.openSnackBar(this.responseMessage, '');
         this.router.navigate(['/cafe/dashboard']);
       },
@@ -56,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.ngxService.stop();
         if (error.error?.message) {
           this.responseMessage = error.error?.message;
-        } else {
+        } else {  
           this.responseMessage = GlobalConstants.genericError;
         }
         this.snackBar.openSnackBar(this.responseMessage, GlobalConstants.error);

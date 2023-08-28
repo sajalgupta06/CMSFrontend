@@ -31,7 +31,7 @@ export class UserService {
   }
 
   checkToken() {
-    return this.http.get(`${this.url}/user/checkToken`);
+    return this.http.get(`${this.url}/checkToken`);
   }
 
   changePassword(data: any) {

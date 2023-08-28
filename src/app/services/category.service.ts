@@ -14,7 +14,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   add(data: any) {
-    return this.http.post(`${this.url}/category/add`, data, this.jsonHeader);
+    return this.http.post(`${this.url}/categories`, data, this.jsonHeader);
   }
 
   update(data: any) {
@@ -22,6 +22,6 @@ export class CategoryService {
   }
 
   getCategories() {
-    return this.http.get(`${this.url}/category/get/`);
+    return this.http.get(`${this.url}/categories`);
   }
 }

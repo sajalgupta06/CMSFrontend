@@ -1,1 +1,24 @@
-<p>;lasjdf;la</p>
+<div class="flex-container">
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let prod of foodItem">
+        <mat-card>
+            <!-- <img mat-card-image src={{prod.img}} alt="pizza" > -->
+            <mat-card-header>
+                <mat-card-title>{{prod.name}}</mat-card-title>
+                <mat-card-header>{{prod.price | currency:'INR'}}</mat-card-header>
+            </mat-card-header>
+            <mat-card-subtitle>
+                <p>{{prod.description}}</p>
+            </mat-card-subtitle>
+            <mat-card-actions>
+                <button mat-button (click)="decrement(prod)">-</button>
+                <span>{{prod.quantity}}</span>
+                <button mat-button (click)="increment(prod)">+</button>
+                <button mat-button (click)="addCart(prod)"> <mat-icon>add_shopping_cart</mat-icon>Add to cart</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>    
+</mat-grid-list>
+</div>
+
+  

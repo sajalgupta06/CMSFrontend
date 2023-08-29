@@ -1,5 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, AfterViewInit } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 
 
 /** @title Responsive sidenav */
@@ -13,10 +14,17 @@ export class FullComponent implements OnDestroy, AfterViewInit {
 
   private _mobileQueryListener: () => void;
 
+  token: string = localStorage.getItem('token')!;
+  tokenPayload: any;
+  role: string = "";
+
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
   ) {
+    this.tokenPayload = jwtDecode(this.token);
+    console.log(this.tokenPayload)
+    this.role = this.tokenPayload.Role;
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);

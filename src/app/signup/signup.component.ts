@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   signupForm: any = FormGroup;
   responseMessage!: string;
   roles:string[]= ["ADMIN","USER"]
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -26,6 +27,7 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+   
     this.signupForm = this.fb.group({
       name: [
         null,

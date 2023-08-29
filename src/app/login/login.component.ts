@@ -13,9 +13,11 @@ import jwtDecode from 'jwt-decode';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent implements OnInit {
   loginForm: any = FormGroup;
   responseMessage: any;
+
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +50,7 @@ export class LoginComponent implements OnInit {
       (resp: any) => {
         this.ngxService.stop();
         this.dialogRef.close();
-        console.log(resp)
+        
         this.responseMessage = resp?.message;
       
         localStorage.setItem('token', resp.token)

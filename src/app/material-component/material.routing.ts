@@ -32,14 +32,14 @@ export const MaterialRoutes: Routes = [
       expectedRole: ['ADMIN'],
     },
   },
-  {
-    path: 'bill',
-    component: ViewBillComponent,
-    canActivate: [RouteGuardService],
-    data: {
-      expectedRole: ['ADMIN'],
-    },
-  },
+  // {
+  //   path: 'bill',
+  //   component: ViewBillComponent,
+  //   canActivate: [RouteGuardService],
+  //   data: {
+  //     expectedRole: ['ADMIN'],
+  //   },
+  // },
   {
     path: 'user',
     component: ManageUserComponent,

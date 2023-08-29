@@ -17,7 +17,7 @@ const MENUITEMS = [
   },
   { state: 'product', name: 'Manage Products', icon: 'grass', role: 'ADMIN' },
   { state: 'order', name: 'Manage Orders', icon: 'list_alt', role: 'ADMIN' },
-  { state: 'bill', name: 'View Bills', icon: 'money', role: 'ADMIN' },
+  // { state: 'bill', name: 'View Bills', icon: 'money', role: 'ADMIN' },
   { state: 'user', name: 'Manage Users', icon: 'people', role: 'ADMIN' },
 ];
 

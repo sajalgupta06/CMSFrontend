@@ -9,6 +9,5 @@ export class ClientComponent implements AfterViewInit {
   responseMessage: any;
   data: any;
   ngAfterViewInit() {}
-
  
 }

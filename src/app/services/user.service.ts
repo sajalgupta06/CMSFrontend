@@ -26,8 +26,8 @@ export class UserService {
   }
 
   login(data: any) {
-    console.log(data)
-    return this.http.post(`${this.url}/users/login`, {...data}, this.jsonHeader);
+   
+    return this.http.post(`${this.url}/users/login`, data, this.jsonHeader);
   }
 
   checkToken() {

@@ -27,6 +27,10 @@ export class RouteGuardService {
       tokenPayload = jwt_decode(token);
     } catch (error) {
       localStorage.clear();
+      this.snackBar.openSnackBar(
+        GlobalConstants.unauthorized, 
+        GlobalConstants.error
+      );
       this.router.navigate(['/']);
     }
     
@@ -52,8 +56,15 @@ export class RouteGuardService {
       this.router.navigate(['/']);
       return false;
     } else {
+
+    
       this.router.navigate(['/']);
       localStorage.clear();
+      this.snackBar.openSnackBar(
+        GlobalConstants.unauthorized, 
+        GlobalConstants.error
+      );
+
       return false;
     }
   }

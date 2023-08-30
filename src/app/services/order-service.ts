@@ -22,7 +22,7 @@ export class OrderService {
   }
 
   getOrders() {
-    return this.http.get(`${this.url}/orders`);
+    return this.http.get(`${this.url}/orders`, this.jsonHeader);
   }
 
  

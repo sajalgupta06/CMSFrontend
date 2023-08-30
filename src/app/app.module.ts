@@ -32,7 +32,7 @@ const ngx_ui_loader_config: NgxUiLoaderConfig = {
   pbColor: 'red',
   bgsColor: 'red',
   fgsColor: 'red',
-  fgsType: SPINNER.chasingDots,
+  fgsType: SPINNER.circle,
   fgsSize: 100,
   pbDirection: PB_DIRECTION.leftToRight,
   pbThickness: 5,

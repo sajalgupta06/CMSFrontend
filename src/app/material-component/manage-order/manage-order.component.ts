@@ -5,6 +5,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderService } from 'src/app/services/order-service';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-manage-order',
@@ -21,6 +22,7 @@ export class ManageOrderComponent implements OnInit {
     'orderedItems',
     'total',
     'paymentMethod',
+    'createdAt',
     'orderStatus',
   ];
   dataSource: any= [];
@@ -43,7 +45,14 @@ export class ManageOrderComponent implements OnInit {
     this.orderService.getOrders().subscribe(
       (resp: any) => {
         this.ngxService.stop();
+
        
+        for (let index = 0; index <  resp.length; index++) {
+          resp[index].createdAt =  moment(resp[index].createdAt).format("hh:mm A , DD-MMM-YYYY")
+
+          
+        }
+     
         this.dataSource = new MatTableDataSource(resp);
         console.log(resp);
       },

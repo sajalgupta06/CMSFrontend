@@ -1,1 +1,4 @@
-<h1>Hello</h1>
+<nav mat-tab-nav-bar  style = "padding:5px 20px">
+    <a mat-tab-link *ngFor="let categories of category" [routerLink]="categories.name" [routerLinkActive]="'active'">{{categories.name}}</a>
+</nav>
+<router-outlet></router-outlet>

@@ -3,7 +3,7 @@
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
     --bs-pink: #d63384;
-    --bs-red: #dc3545;
+    --bs-red: #2b0303;
     --bs-orange: #fd7e14;
     --bs-yellow: #ffc800;
     --bs-green: #198754;
@@ -26,7 +26,7 @@
     --bs-success: #198754;
     --bs-info: #0dcaf0;
     --bs-warning: #ffc800;
-    --bs-danger: #dc3545;
+    --bs-danger: #2b0303;
     --bs-light: #f8f9fa;
     --bs-dark: #212529;
     --bs-primary-rgb: 255, 200, 0;
@@ -2891,7 +2891,7 @@
     width: 100%;
     margin-top: 0.25rem;
     font-size: 0.875em;
-    color: #dc3545;
+    color: #2b0303;
   }
   
   .invalid-tooltip {
@@ -2904,7 +2904,7 @@
     margin-top: 0.1rem;
     font-size: 0.875rem;
     color: #fff;
-    background-color: rgba(220, 53, 69, 0.9);
+    background-color: #2b0303(220, 53, 69, 0.9);
     border-radius: 0.25rem;
   }
   
@@ -2916,7 +2916,7 @@
   }
   
   .was-validated .form-control:invalid, .form-control.is-invalid {
-    border-color: #dc3545;
+    border-color: #2b0303;
     padding-right: calc(1.5em + 0.75rem);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -2924,7 +2924,7 @@
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
   }
   .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
-    border-color: #dc3545;
+    border-color: #2b0303;
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
   }
   
@@ -2934,7 +2934,7 @@
   }
   
   .was-validated .form-select:invalid, .form-select.is-invalid {
-    border-color: #dc3545;
+    border-color: #2b0303;
   }
   .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"] {
     padding-right: 4.125rem;
@@ -2943,21 +2943,21 @@
     background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
   }
   .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
-    border-color: #dc3545;
+    border-color: #2b0303;
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
   }
   
   .was-validated .form-check-input:invalid, .form-check-input.is-invalid {
-    border-color: #dc3545;
+    border-color: #2b0303;
   }
   .was-validated .form-check-input:invalid:checked, .form-check-input.is-invalid:checked {
-    background-color: #dc3545;
+    background-color: #2b0303;
   }
   .was-validated .form-check-input:invalid:focus, .form-check-input.is-invalid:focus {
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
   }
   .was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
-    color: #dc3545;
+    color: #2b0303;
   }
   
   .form-check-inline .form-check-input ~ .invalid-feedback {
@@ -3164,32 +3164,32 @@
   
   .btn-danger {
     color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-danger:hover {
     color: #fff;
-    background-color: #bb2d3b;
-    border-color: #b02a37;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-check:focus + .btn-danger, .btn-danger:focus {
     color: #fff;
-    background-color: #bb2d3b;
-    border-color: #b02a37;
+    background-color: #2b0303;
+    border-color: #2b0303;
     box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
   }
   .btn-check:checked + .btn-danger, .btn-check:active + .btn-danger, .btn-danger:active, .btn-danger.active, .show > .btn-danger.dropdown-toggle {
     color: #fff;
-    background-color: #b02a37;
-    border-color: #a52834;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-check:checked + .btn-danger:focus, .btn-check:active + .btn-danger:focus, .btn-danger:active:focus, .btn-danger.active:focus, .show > .btn-danger.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
   }
   .btn-danger:disabled, .btn-danger.disabled {
     color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   
   .btn-light {
@@ -3378,27 +3378,27 @@
   }
   
   .btn-outline-danger {
-    color: #dc3545;
-    border-color: #dc3545;
+    color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-outline-danger:hover {
     color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-check:focus + .btn-outline-danger, .btn-outline-danger:focus {
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.5);
   }
   .btn-check:checked + .btn-outline-danger, .btn-check:active + .btn-outline-danger, .btn-outline-danger:active, .btn-outline-danger.active, .btn-outline-danger.dropdown-toggle.show {
     color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #2b0303;
+    border-color: #2b0303;
   }
   .btn-check:checked + .btn-outline-danger:focus, .btn-check:active + .btn-outline-danger:focus, .btn-outline-danger:active:focus, .btn-outline-danger.active:focus, .btn-outline-danger.dropdown-toggle.show:focus {
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.5);
   }
   .btn-outline-danger:disabled, .btn-outline-danger.disabled {
-    color: #dc3545;
+    color: #2b0303;
     background-color: transparent;
   }
   
@@ -6452,7 +6452,7 @@
   }
   
   .link-danger {
-    color: #dc3545;
+    color: #2b0303;
   }
   .link-danger:hover, .link-danger:focus {
     color: #b02a37;
@@ -6883,7 +6883,7 @@
   }
   
   .border-danger {
-    border-color: #dc3545 !important;
+    border-color: #2b0303 !important;
   }
   
   .border-light {
@@ -11566,7 +11566,7 @@
     color: white;
     border: 7px solid #e9ecef;
     border-radius: 100%;
-    background-color: #e53935;
+    background-color: #2b0303;
   }
   .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
     font-size: 10px;

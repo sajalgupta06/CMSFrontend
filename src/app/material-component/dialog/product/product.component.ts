@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
       categoryId: [null, [Validators.required]],
       price: [null, [Validators.required]],
       description: [null, [Validators.required]],
+      image: [null, [Validators.required]],
     });
 
     if (this.dialogData.action === 'Edit') {
@@ -80,6 +81,7 @@ export class ProductComponent implements OnInit {
       categoryID: formData.categoryId,
       price: formData.price,
       description: formData.description,
+      image: formData.image,
     };
 
     this.productService.add(data).subscribe(

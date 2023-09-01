@@ -1,7 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from '../services/category.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { CartService } from '../services/cart-service.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,24 +8,35 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./client.component.scss'],
 })
 export class ClientComponent implements OnInit {
-  responseMessage: any;
-  data: any;
-  category: any;
-  // lst: string = "";
-
+  showCheckoutBar:boolean=true
+  url:any=""
   constructor(
+    public cartService:CartService,
     private route : ActivatedRoute,
-    private categoryService: CategoryService,
-    private router: Router
-  ){}
+    private router : Router
+
+  ){
+  
+
+    this.router.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) { 
+        this.url = this.router.url
+    
+        this.url = this.url.split('/').pop();
+     
+         console.log(this.url)
+         if(this.url=='checkout'|| this.url=="pastorders")
+         {
+          this.showCheckoutBar = false
+          return;
+         }
+         this.showCheckoutBar=true
+        /* Your code goes here on every router change */}
+    });
+  }
 
   ngOnInit(){
-    this.categoryService.getCategories().subscribe(
-      (resp: any) => {
-        this.category=resp;
-        console.log("Categoires Table ****", this.category);
-      }
-    )
+ 
   }
  
 }

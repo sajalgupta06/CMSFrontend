@@ -1,35 +1,27 @@
-<div class="flex-container">
-    <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-grid-tile *ngFor="let products of productList">
-            <mat-card>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1548983965-416c1920352e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Denim Jeans" style="width:100%">
-                <h1>{{products.name}}</h1>
-                <p class="price">{{products.price | currency: 'INR'}}</p>
-                <p>{{products.description}}</p>
-                <p><button>Add to Cart</button></p>
-            </div>
-            </mat-card>
 
-        </mat-grid-tile>
-        <!-- <mat-grid-tile *ngFor="let products of productList">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>{{products.name}}</mat-card-title>
-                    <mat-card-header>
-                        {{products.price | currency: 'INR'}}
-                    </mat-card-header>
-                    <mat-card-subtitle>
+<mat-grid-list cols="4" rowHeight="1:1.5" gutterSize="20px">
+    <mat-grid-tile *ngFor="let products of productList">
+        <mat-card>
+            <img mat-card-image src="https://media.istockphoto.com/id/1345624338/photo/chicken-biriyani.jpg?s=1024x1024&w=is&k=20&c=c_5v_oLgDGeTvvkSeXy3shHw0Yo8ZIX08y2QHk6zvsM=" alt="Product Image">
+            <mat-card-content>
+                        <h3 mat-card-title>{{products.name}}</h3>
                         <p>{{products.description}}</p>
-                    </mat-card-subtitle>
-                    <mat-card-actions>
-                        <button (click) = "decrement(products)"> - </button>
-                        <span>{{quantity}}</span>
-                        <button (click) = "increment(products)"> + </button>
-                        <button (click) = "addCart(products)"> <mat-icon>add_shopping_cart</mat-icon> Add to cart </button>
-                    </mat-card-actions>
-                </mat-card-header>
-            </mat-card>
-        </mat-grid-tile> -->
-    </mat-grid-list>
-</div>
+                        <p class="price">Price: Rs.{{products.price}} </p>
+                     <div  class="cartButton">
+
+                         <button  mat-raised-button color="primary"  (click)="add(products)" >+</button>
+                         <!-- <input type="number" class="productsCount" [(ngModel)]= "getProductCount({{products.id}})" /> -->
+                            <!-- {{this.cartService?.cart.map().productsCount}} -->
+                           <!-- {{this.cartService.cart.find( (ele)=>ele.productsId==products.id) }} -->
+                           <!-- <p ng-bind="getProductCount">{{this.getProductCount(products.id)}}</p> -->
+
+                         <button mat-raised-button color="warn"  (click)="remove(products)">-</button>
+                     </div>
+                     
+                        <!-- <button mat-raised-button color="primary" (click)="add(products)" >Add to Cart</button>
+                        <button mat-raised-button color="warn" >Remove</button>  -->
+                    </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+

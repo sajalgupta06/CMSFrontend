@@ -1,9 +1,17 @@
 <div class="navLinks">
     <button *ngIf="this.tokenpayload.Role==='USER' "   mat-icon-button class="m-r-5">
-       <a  [routerLink]="['/cafe/pastorders']">
+        <a  [routerLink]="['/cafe/client']">
+         Home
+        </a>
+     </button>
+     
+    <button *ngIf="this.tokenpayload.Role==='USER' "   mat-icon-button class="m-r-5">
+       <a  [routerLink]="['/cafe/client/pastorders']">
         Past Orders
        </a>
     </button>
+
+ 
     <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
         <mat-icon>account_circle</mat-icon>
     </button>

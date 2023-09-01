@@ -1,0 +1,25 @@
+.checkout-container {
+    margin: 20px;
+  }
+  
+  .client-details,
+  .payment-methods,
+  .total-amount,
+  .checkout-button {
+    margin: 20px 0;
+  }
+  
+  .product-details {
+    margin-top: 20px;
+  }
+  
+  .product-card {
+    margin-bottom: 10px;
+  }
+
+  .radioGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }

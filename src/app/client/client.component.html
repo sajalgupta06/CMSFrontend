@@ -1,4 +1,15 @@
-<nav mat-tab-nav-bar  style = "padding:5px 20px">
-    <a mat-tab-link *ngFor="let categories of category" [routerLink]="categories.id" [routerLinkActive]="'active'">{{categories.name}}</a>
-</nav>
-<router-outlet></router-outlet>
+
+
+<div class="cart-summary" *ngIf="this.showCheckoutBar">
+    <P>Total Rs :  <span class="amount"> {{this.cartService.total}}</span></P>
+    <button mat-raised-button color="warn"  >
+        <a  [routerLink]="['/cafe/client/checkout']">
+            Checkout
+           </a>
+        
+        </button>
+</div>
+
+<router-outlet>
+
+</router-outlet>

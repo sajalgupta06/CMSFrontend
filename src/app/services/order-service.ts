@@ -13,9 +13,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) {}
 
-  add(data: any) {
-    return this.http.post(`${this.url}/categories`, data, this.jsonHeader);
-  }
+ 
   
   updateStatus(data: any) {
     return this.http.put(`${this.url}/orders/updateOrderStatus`, data, this.jsonHeader);
@@ -23,6 +21,12 @@ export class OrderService {
 
   getOrders() {
     return this.http.get(`${this.url}/orders`, this.jsonHeader);
+  }
+
+
+  placeOrder(data:any){
+    return this.http.post(`${this.url}/orders`, data, this.jsonHeader);
+
   }
 
  

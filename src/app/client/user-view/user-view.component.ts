@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart-service.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,8 +13,10 @@ export class UserViewComponent implements OnInit {
   product: any;
   productList : any = [];
 
+
   constructor(
     private productService : ProductService,
+    public cartService : CartService,
     private route : ActivatedRoute,
     private router : Router
   ){
@@ -34,18 +37,30 @@ export class UserViewComponent implements OnInit {
     })
   }
  
-  quantity = 0;
+ 
+  getProductCount(id:number){
+    this.cartService.cart.map((item:any)=>{
+      if(item.productsId==id)
+      {
+        return item.productsCount;
+      }
+    })
+    return 0;
+  }
 
-  increment(prod: any){
-    this.quantity +=1;
+
+  add(prod:any){
+
+    this.cartService.addToCart(prod);
+    this.getProductCount(prod.id)
   }
-  decrement(prod: any){
-    if(this.quantity>0){
-      this.quantity -=1;
-    }
-    else this.quantity = 0;
+
+  remove(prod:any)
+  {
+    this.cartService.removeFromCart(prod)
+    this.getProductCount(prod.id)
+
   }
-  addCart(prod: any){
-    this.addCart(prod);
-  }
+
+
 }

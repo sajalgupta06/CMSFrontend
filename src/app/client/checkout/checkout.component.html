@@ -1,0 +1,46 @@
+<div class="checkout-container">
+ 
+  
+    <div *ngIf="this.cartService.cart.length>0">
+        <h1>Checkout</h1>
+        <div class="client-details">
+            <mat-form-field>
+              <input matInput placeholder="Delivery  Address" [(ngModel)]="address">
+            </mat-form-field>
+          </div>
+        
+          <div class="payment-methods">
+            <h3>Payment Mode</h3>
+            <mat-radio-group class="radioGroup" [(ngModel)]="selectedPaymentMethod">
+              <mat-radio-button value="upi">UPI</mat-radio-button>
+              <mat-radio-button value="card">Card</mat-radio-button>
+              <mat-radio-button value="cod">Cash on Delivery (COD)</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        
+          <div class="product-details">
+            <h3>Product Details</h3>
+            <mat-card *ngFor="let item of this.cartService.cart" class="product-card">
+              <!-- <img mat-card-image [src]="item.imgSrc" alt="Product Image"> -->
+              <mat-card-content>
+                <h4 mat-card-title>{{ item.productName }}</h4>
+                <!-- <p mat-card-subtitle>{{ item.description }}</p> -->
+                <p>Price: ${{ item.productsPrice }}</p>
+                <p>Quantity: {{ item.productsCount }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        
+          <div class="total-amount">
+            <!-- <h3>Total Amount: ${{ calculateTotal() }}</h3> -->
+          </div>
+        
+          <div class="checkout-button">
+            <button mat-raised-button color="primary" (click)="placeOrder()" >Place Order</button>
+          </div>
+    </div>
+    <div *ngIf="this.cartService.cart.length==0">
+        No Item Added
+        </div>
+
+  </div>

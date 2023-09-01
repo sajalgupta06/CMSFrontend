@@ -6,6 +6,7 @@ import { ClientComponent } from './client.component';
 import { ClientRoutes } from './client.routing';
 import { MaterialModule } from '../shared/material-module';
 import { UserViewComponent } from './user-view/user-view.component';
+import { PastOrdersComponent } from './past-orders/past-orders.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { UserViewComponent } from './user-view/user-view.component';
     FlexLayoutModule,
     RouterModule.forChild(ClientRoutes)
   ],
-  declarations: [ClientComponent, UserViewComponent]
+  declarations: [ClientComponent, UserViewComponent, PastOrdersComponent]
 })
 export class ClientModule { }

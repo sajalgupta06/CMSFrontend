@@ -1,7 +1,7 @@
 <div class="main-container">
     <mat-toolbar color="primary" class="topbar telative">
         <div class="navbar-header">
-            <button *ngIf="this.dashboardName=='ADMIN'"  mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="vertical-align: bottom;">
+            <button *ngIf="this.tokenpayload.Role==='ADMIN'"  mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="vertical-align: bottom;">
                 <mat-icon >menu</mat-icon>
             </button><b>
                 <span style="vertical-align: middle;">

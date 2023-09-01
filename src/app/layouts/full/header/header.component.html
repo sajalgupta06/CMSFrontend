@@ -1,6 +1,6 @@
 <div class="navLinks">
-    <button  mat-icon-button class="m-r-5">
-       <a href="/pastOrders">
+    <button *ngIf="this.tokenpayload.Role==='USER' "   mat-icon-button class="m-r-5">
+       <a  [routerLink]="['/cafe/pastorders']">
         Past Orders
        </a>
     </button>

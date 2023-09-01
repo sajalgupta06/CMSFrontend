@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { ConfirmationComponent } from 'src/app/material-component/dialog/confirmation/confirmation.component';
 
 @Component({
@@ -10,7 +11,12 @@ import { ConfirmationComponent } from 'src/app/material-component/dialog/confirm
 })
 export class AppHeaderComponent {
   role: any;
-  constructor(private router: Router, private dialog: MatDialog) {}
+  tokenpayload:any = ""
+  token:any = localStorage.getItem('token')
+  constructor(private router: Router, private dialog: MatDialog) {
+    this.tokenpayload = jwtDecode(this.token)
+
+  }
 
   logout() {
     const dialogConfig = new MatDialogConfig();

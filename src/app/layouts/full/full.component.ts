@@ -21,13 +21,14 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     media: MediaMatcher
   ) {
     this.tokenpayload = jwtDecode(this.token)
-    if(this.tokenpayload.Role=="ADMIN")
+    if(this.tokenpayload=="ADMIN")
     {
       this.dashboardName="Admin Dashboard"
     }
     else if (this.tokenpayload.Role=="USER"){
       this.dashboardName="CMS Client"
     }
+
 
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

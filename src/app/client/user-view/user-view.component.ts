@@ -27,7 +27,7 @@ export class UserViewComponent implements OnInit {
   }
 
   foodItems(id : any){
-    this.productService.getProducts().subscribe(
+    this.productService.getProductsByCategory(id).subscribe(
     (resp: any) => {
       this.productList = resp;
       console.log("Product Table ********",this.productList)

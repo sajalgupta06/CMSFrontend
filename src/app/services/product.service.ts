@@ -25,6 +25,7 @@ export class ProductService {
     return this.http.get(`${this.url}/products`);
   }
 
+
   updateStatus(data: any) {
     return this.http.put(
       `${this.url}/products/updateStatus`,
@@ -41,7 +42,7 @@ export class ProductService {
   }
 
   getProductsByCategory(id: any) {
-    return this.http.get(`${this.url}/product/getByCategoryID/${id}`);
+    return this.http.get(`${this.url}/products/productByCategory/?id=${id}`);
   }
 
   getById(id: any) {

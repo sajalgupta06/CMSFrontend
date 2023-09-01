@@ -1,14 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { ProductComponent } from 'src/app/material-component/dialog/product/product.component';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
-export class UserViewComponent implements OnInit {
 
-  constructor() { }
+export class UserViewComponent implements OnInit {
+ 
+  dataSource: any;
+
+  constructor(
+    private productService: ProductService,
+    private ngxService: NgxUiLoaderService,
+    private dialog: MatDialog,
+    private router: Router
+  ) { }
 
   foodItem: any[] = [
     {
@@ -42,6 +56,18 @@ export class UserViewComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.ngxService.start();
+    this.foodItems()
+  }
+
+  foodItems(){
+    this.productService.getProducts().subscribe(
+      (res:any) => {
+        this.ngxService.stop();
+        this.dataSource = new MatTableDataSource(res);
+        console.log("product table ****", this.dataSource);
+      }
+    )
   }
 
   quantity: number = 1;

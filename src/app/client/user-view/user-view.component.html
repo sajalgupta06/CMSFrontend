@@ -2,7 +2,7 @@
 <mat-grid-list cols="4" rowHeight="1:1.5" gutterSize="20px">
     <mat-grid-tile *ngFor="let products of productList">
         <mat-card>
-            <img mat-card-image src="products.image" alt="Product Image">
+            <img mat-card-image [src]="products.image" alt="Product Image">
             <mat-card-content>
                         <h3 mat-card-title>{{products.name}}</h3>
                         <p>{{products.description}}</p>

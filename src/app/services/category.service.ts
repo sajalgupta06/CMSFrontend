@@ -25,6 +25,9 @@ export class CategoryService {
     return this.http.get(`${this.url}/categories`);
   }
 
+  getCategoriesById(id:any) {
+    return this.http.get(`${this.url}/categories/?id=${id}`);
+  }
   delete(id: any) {
     return this.http.delete(
       `${this.url}/categories/${id}`,

@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ClientComponent } from './client.component';
 import { ClientRoutes } from './client.routing';
 import { MaterialModule } from '../shared/material-module';
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { MaterialModule } from '../shared/material-module';
     FlexLayoutModule,
     RouterModule.forChild(ClientRoutes)
   ],
-  declarations: [ClientComponent]
+  declarations: [ClientComponent, UserViewComponent]
 })
 export class ClientModule { }

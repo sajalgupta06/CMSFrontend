@@ -1,0 +1,23 @@
+<div class="flex-container">
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let products of productList">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{products.name}}</mat-card-title>
+                    <mat-card-header>
+                        {{products.price | currency: 'INR'}}
+                    </mat-card-header>
+                    <mat-card-subtitle>
+                        <p>{{products.description}}</p>
+                    </mat-card-subtitle>
+                    <mat-card-actions>
+                        <button (click) = "decrement(products)"> - </button>
+                        <span>{{quantity}}</span>
+                        <button (click) = "increment(products)"> + </button>
+                        <button (click) = "addCart(products)"> <mat-icon>add_shopping_cart</mat-icon> Add to cart </button>
+                    </mat-card-actions>
+                </mat-card-header>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -39,13 +39,26 @@ export class UserViewComponent implements OnInit {
  
  
   getProductCount(id:number){
-    this.cartService.cart.map((item:any)=>{
+
+
+    var itemCount =0;
+     this.cartService.cart.forEach((item:any)=>{
       if(item.productsId==id)
-      {
-        return item.productsCount;
+      { 
+        itemCount =  item.productsCount;
+        return;
       }
     })
-    return 0;
+
+ 
+  
+    this.productList.forEach((item:any)=>{
+      if(item.id==id)
+      {
+        item.productsCount = itemCount
+        return;
+      }
+    })
   }
 
 
@@ -53,13 +66,16 @@ export class UserViewComponent implements OnInit {
 
     this.cartService.addToCart(prod);
     this.getProductCount(prod.id)
+    console.log(this.productList)
+   
+
   }
 
   remove(prod:any)
   {
     this.cartService.removeFromCart(prod)
     this.getProductCount(prod.id)
-
+    console.log(this.productList)
   }
 
 

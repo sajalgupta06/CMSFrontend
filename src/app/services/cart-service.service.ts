@@ -63,7 +63,6 @@ addToCart(product:any){
   }
 
   this.calculateTotal()
-  console.log(this.cart)
 
 }
 removeFromCart(product:any){
@@ -96,7 +95,6 @@ removeFromCart(product:any){
   }
 
   this.calculateTotal()
-  console.log(this.cart)
 
 }
 

@@ -10,12 +10,12 @@
                      <div  class="cartButton">
 
                          <button  mat-raised-button color="primary"  (click)="add(products)" >+</button>
-                         <!-- <input type="number" class="productsCount" [(ngModel)]= "getProductCount({{products.id}})" /> -->
-                            <!-- {{this.cartService?.cart.map().productsCount}} -->
-                           <!-- {{this.cartService.cart.find( (ele)=>ele.productsId==products.id) }} -->
-                           <!-- <p ng-bind="getProductCount">{{this.getProductCount(products.id)}}</p> -->
+                   
+                           <p class="productsCount">
 
-                         <button mat-raised-button color="warn"  (click)="remove(products)">-</button>
+                               {{products.productsCount || 0}}
+                           </p> 
+                         <button [disabled]="! (products.productsCount &&  products.productsCount>0)" mat-raised-button color="warn"  (click)="remove(products)">-</button>
                      </div>
                      
                         <!-- <button mat-raised-button color="primary" (click)="add(products)" >Add to Cart</button>

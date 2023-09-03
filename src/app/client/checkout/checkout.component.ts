@@ -17,7 +17,7 @@ export class CheckoutComponent implements OnInit {
   selectedPaymentMethod:string=""
   responseMessage: any;
   address: any;
-
+  displayedColumns: string[] = ['productName', 'productsPrice', 'productsCount', "productAmount"];
   constructor(
     public cartService:CartService,
     private router: Router,

@@ -12,7 +12,8 @@ export const ClientRoutes: Routes = [{
     children : [
       {
         path: '',
-        component : CategoriesComponent
+        component : CategoriesComponent,
+        
       },
       {
         path: 'pastorders',

@@ -3,6 +3,37 @@
   
     <div *ngIf="this.cartService.cart.length>0">
         <h1>Checkout</h1>
+        <table mat-table [dataSource]="this.cartService.cart" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="productsCount">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.productsCount}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="productsPrice">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{"$" + element.productsPrice}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="productAmount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{"$" + (element.productsCount * element.productsPrice)}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
         <div class="client-details">
             <mat-form-field>
               <input matInput placeholder="Delivery  Address" [(ngModel)]="address">
@@ -18,18 +49,18 @@
             </mat-radio-group>
           </div>
         
-          <div class="product-details">
+          <!-- <div class="product-details">
             <h3>Product Details</h3>
             <mat-card *ngFor="let item of this.cartService.cart" class="product-card">
-              <!-- <img mat-card-image [src]="item.imgSrc" alt="Product Image"> -->
+            
               <mat-card-content>
                 <h4 mat-card-title>{{ item.productName }}</h4>
-                <!-- <p mat-card-subtitle>{{ item.description }}</p> -->
+                
                 <p>Price: ${{ item.productsPrice }}</p>
                 <p>Quantity: {{ item.productsCount }}</p>
               </mat-card-content>
             </mat-card>
-          </div>
+          </div> -->
         
           <div class="total-amount">
             <!-- <h3>Total Amount: ${{ calculateTotal() }}</h3> -->

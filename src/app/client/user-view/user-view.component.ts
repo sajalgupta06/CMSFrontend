@@ -26,9 +26,10 @@ export class UserViewComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit: any
+  
+   
+  
   foodItems(id : any){
     this.productService.getProductsByCategory(id).subscribe(
     (resp: any) => {

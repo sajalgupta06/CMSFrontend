@@ -34,7 +34,8 @@ addToCart(product:any){
         productsId:product.id,
         productName:product.name,
         productsPrice : product.price,
-        productsCount:1
+        productsCount:1,
+        productImage : product.image
       }
     )
   }

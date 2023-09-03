@@ -13,6 +13,10 @@ export class CategoriesComponent implements OnInit {
   responseMessage: any;
   data: any;
   category: any;
+
+  
+
+  
   // lst: string = "";
 
   constructor(
@@ -25,6 +29,9 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.getCategories().subscribe(
       (resp: any) => {
         this.category=resp;
+        if (this.category && this.category.length) {
+          this.router.navigate(this.category[0].id)
+          }
         console.log("Categoires Table ****", this.category);
       }
     )

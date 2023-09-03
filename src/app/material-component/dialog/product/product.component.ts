@@ -111,6 +111,7 @@ export class ProductComponent implements OnInit {
       categoryID: formData.categoryId,
       price: formData.price,
       description: formData.description,
+      image: formData.image,
     };
 
     this.productService.update(data).subscribe(

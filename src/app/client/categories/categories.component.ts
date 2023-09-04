@@ -30,7 +30,7 @@ export class CategoriesComponent implements OnInit {
       (resp: any) => {
         this.category=resp;
         if (this.category && this.category.length) {
-          this.router.navigate(this.category[0].id)
+          this.router.navigate(this.category[0])
           }
         console.log("Categoires Table ****", this.category);
       }

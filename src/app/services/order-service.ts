@@ -7,8 +7,10 @@ import { environment } from '../../environments/environment';
 })
 export class OrderService {
   url: string = environment.apiURL;
+  
   jsonHeader = {
     headers: new HttpHeaders().set('Content-Type', 'application/json'),
+
   };
 
   constructor(private http: HttpClient) {}

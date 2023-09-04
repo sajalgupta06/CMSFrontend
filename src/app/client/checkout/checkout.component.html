@@ -1,11 +1,11 @@
 <div class="checkout-container">
- 
-  
-    <div *ngIf="this.cartService.cart.length>0">
-        <h1>Checkout</h1>
-        <table mat-table [dataSource]="this.cartService.cart" class="mat-elevation-z8">
 
-          <!--- Note that these columns can be defined in any order.
+
+  <div *ngIf="this.cartService.cart.length>0">
+    <h1>Checkout</h1>
+    <table mat-table [dataSource]="this.cartService.cart" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
 
           <ng-container matColumnDef="productName">
@@ -22,13 +22,13 @@
           <!-- Weight Column -->
           <ng-container matColumnDef="productsPrice">
             <th mat-header-cell *matHeaderCellDef> Price </th>
-            <td mat-cell *matCellDef="let element"> {{"$" + element.productsPrice}} </td>
+            <td mat-cell *matCellDef="let element"> {{"Rs." + element.productsPrice}} </td>
           </ng-container>
         
-          <!-- Symbol Column -->
+          <!-- Symbol Column -->  
           <ng-container matColumnDef="productAmount">
             <th mat-header-cell *matHeaderCellDef> Amount </th>
-            <td mat-cell *matCellDef="let element"> {{"$" + (element.productsCount * element.productsPrice)}} </td>
+            <td mat-cell *matCellDef="let element"> {{"Rs." + (element.productsCount * element.productsPrice)}} </td>
           </ng-container>
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -63,7 +63,7 @@
           </div> -->
         
           <div class="total-amount">
-            <!-- <h3>Total Amount: ${{ calculateTotal() }}</h3> -->
+            <h3>Total Amount: {{this.cartService.total  }}</h3>
           </div>
         
           <div class="checkout-button">
@@ -74,4 +74,4 @@
         No Item Added
         </div>
 
-  </div>
+</div>

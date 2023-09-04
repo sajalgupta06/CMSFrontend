@@ -6,6 +6,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderService } from 'src/app/services/order-service';
 import * as moment from "moment";
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-past-orders',
@@ -28,7 +29,7 @@ export class PastOrdersComponent implements OnInit {
     'address'
   ];
   dataSource: any= [];
-
+  token:any="";
 
   constructor(
     private fb: FormBuilder,
@@ -38,13 +39,21 @@ export class PastOrdersComponent implements OnInit {
     private snackBar: SnackbarService
   ) {}
 
+
   ngOnInit(): void {
     this.ngxService.start();
     this.tableData();
   }
 
+
+
   tableData() {
-    this.orderService.getOrders().subscribe(
+
+    
+  this.token = localStorage.getItem('token')
+  this.token = jwtDecode(this.token)
+
+    this.orderService.getOrdersById(this.token.Id).subscribe(
       (resp: any) => {
         this.ngxService.stop();
 

@@ -1,4 +1,21 @@
-
+<!-- 
 <nav mat-tab-nav-bar  style = "padding:5px 20px">
     <a mat-tab-link *ngFor="let categories of category" [routerLink]="categories.id" [routerLinkActive]="'active'">{{categories.name}}</a>
-</nav>
+</nav> -->
+
+<mat-grid-list cols="6" rowHeight="1:1.5" gutterSize="20px">
+    <mat-grid-tile *ngFor="let categories of category">
+        <mat-card>
+            <img  mat-card-image style="height: 200px;"class="center" [src]="categories.image" alt="Category Image">
+
+            <mat-card-content>
+                <!-- <img mat-card-image [src]="categories.image" alt="Category Image"> -->
+
+                <nav mat-tab-nav-bar style="padding:5px 20px">
+                    <a mat-tab-link [routerLink]="categories.id" [routerLinkActive]="'active'">{{categories.name}}</a>
+                </nav>
+
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

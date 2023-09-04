@@ -34,7 +34,8 @@ addToCart(product:any){
         productsId:product.id,
         productName:product.name,
         productsPrice : product.price,
-        productsCount:1
+        productsCount:1,
+        productImage : product.image
       }
     )
   }
@@ -63,7 +64,6 @@ addToCart(product:any){
   }
 
   this.calculateTotal()
-  console.log(this.cart)
 
 }
 removeFromCart(product:any){
@@ -96,7 +96,6 @@ removeFromCart(product:any){
   }
 
   this.calculateTotal()
-  console.log(this.cart)
 
 }
 

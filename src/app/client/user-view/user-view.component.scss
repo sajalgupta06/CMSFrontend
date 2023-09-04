@@ -14,7 +14,7 @@ mat-cart{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+   margin: 20px;
 }
 .cartButton{
   display: flex;
@@ -23,7 +23,7 @@ mat-cart{
 }
 
 .productsCount{
-  width: 50%;
+  width: 10%;
 }
 
 .cart-summary{
@@ -45,4 +45,10 @@ mat-cart{
   }
  
 
+}
+
+.productsCount{
+  display: flex;
+  align-items: center;
+  margin: 0;
 }

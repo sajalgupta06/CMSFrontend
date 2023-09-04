@@ -22,10 +22,25 @@
             >
           </mat-error>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input type="text" matInput formControlName="image" required />
+          <mat-error
+            *ngIf="
+            categoryForm.controls.image.touched &&
+            categoryForm.controls.image.invalid
+            "
+          >
+            <span *ngIf="categoryForm.controls.image.errors.required"
+              >This field is mandatory</span
+            >
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
   </form>
 </mat-dialog-content>
+
 
 <mat-dialog-actions align="center">
   <button

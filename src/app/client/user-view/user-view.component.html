@@ -2,20 +2,20 @@
 <mat-grid-list cols="4" rowHeight="1:1.5" gutterSize="20px">
     <mat-grid-tile *ngFor="let products of productList">
         <mat-card>
-            <img mat-card-image src="https://media.istockphoto.com/id/1345624338/photo/chicken-biriyani.jpg?s=1024x1024&w=is&k=20&c=c_5v_oLgDGeTvvkSeXy3shHw0Yo8ZIX08y2QHk6zvsM=" alt="Product Image">
+            <img mat-card-image [src]="products.image" alt="Product Image">
             <mat-card-content>
                         <h3 mat-card-title>{{products.name}}</h3>
                         <p>{{products.description}}</p>
                         <p class="price">Price: Rs.{{products.price}} </p>
                      <div  class="cartButton">
 
-                         <button  mat-raised-button color="primary"  (click)="add(products)" >+</button>
+                         <button  mat-raised-button color="primary"  (click)="add(products)" >Add</button>
                          <!-- <input type="number" class="productsCount" [(ngModel)]= "getProductCount({{products.id}})" /> -->
                             <!-- {{this.cartService?.cart.map().productsCount}} -->
                            <!-- {{this.cartService.cart.find( (ele)=>ele.productsId==products.id) }} -->
                            <!-- <p ng-bind="getProductCount">{{this.getProductCount(products.id)}}</p> -->
 
-                         <button mat-raised-button color="warn"  (click)="remove(products)">-</button>
+                         <button mat-raised-button color="warn"  (click)="remove(products)">Remove</button>
                      </div>
                      
                         <!-- <button mat-raised-button color="primary" (click)="add(products)" >Add to Cart</button>

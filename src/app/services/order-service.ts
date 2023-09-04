@@ -23,6 +23,10 @@ export class OrderService {
     return this.http.get(`${this.url}/orders`, this.jsonHeader);
   }
 
+  getOrdersById(id:any) {
+    return this.http.get(`${this.url}/orders/ordersByUserId?id=${id}`, this.jsonHeader);
+  }
+
 
   placeOrder(data:any){
     return this.http.post(`${this.url}/orders`, data, this.jsonHeader);

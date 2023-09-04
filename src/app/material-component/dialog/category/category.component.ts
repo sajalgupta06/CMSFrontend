@@ -29,6 +29,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
       name: [null, [Validators.required]],
+      image: [null, [Validators.required]],
     });
 
     if (this.dialogData.action === 'Edit') {
@@ -50,6 +51,7 @@ export class CategoryComponent implements OnInit {
     let formData = this.categoryForm.value;
     let data = {
       name: formData.name,
+      image: formData.image,
     };
 
     this.categoryService.add(data).subscribe(
@@ -76,7 +78,9 @@ export class CategoryComponent implements OnInit {
 
     let data = {
       id: this.dialogData.data.id,
-      name: formData.name
+      name: formData.name,
+      image: formData.image,
+
     
     };
 

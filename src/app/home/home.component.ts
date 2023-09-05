@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from '../services/user.service';
 import { SignupComponent } from '../signup/signup.component';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,17 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('token') !== null) {
       this.userService.checkToken().subscribe(
         (resp: any) => {
-          this.router.navigate(['/cafe/dashboard']);
+          var token:any = localStorage.getItem('token');
+          token = jwtDecode(token);
+          if(token.Role=='USER')
+          {
+            this.router.navigate(['/cafe/client']);
+
+          }
+          else{
+            this.router.navigate(['/cafe/dashboard']);
+
+          }
         },
         (error) => {
           console.log(error);

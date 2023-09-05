@@ -27,3 +27,19 @@
 table {
   width: 100%;
 }
+
+.total-amount{
+  display: flex;
+  justify-content: flex-end;
+ 
+  margin-top: 3rem;
+
+  h3{
+    margin: 0;
+    color: white;
+    font-weight: 400;
+    background-color: #e53935;
+    padding:  0.5rem 1rem;
+    border-radius: 1rem;
+  }
+}

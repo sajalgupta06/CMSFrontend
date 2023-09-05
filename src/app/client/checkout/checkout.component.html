@@ -34,7 +34,14 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+
+        <div class="total-amount">
+          <h3>Total Amount: {{this.cartService.total  }}</h3>
+        </div>
+
+
         <div class="client-details">
+          <h3>Enter Delivery Address</h3>
             <mat-form-field>
               <input matInput placeholder="Delivery  Address" [(ngModel)]="address">
             </mat-form-field>
@@ -62,9 +69,7 @@
             </mat-card>
           </div> -->
         
-          <div class="total-amount">
-            <h3>Total Amount: {{this.cartService.total  }}</h3>
-          </div>
+        
         
           <div class="checkout-button">
             <button mat-raised-button color="primary" (click)="placeOrder()" >Place Order</button>

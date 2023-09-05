@@ -27,10 +27,10 @@ export class RouteGuardService {
       tokenPayload = jwt_decode(token);
     } catch (error) {
       localStorage.clear();
-      this.snackBar.openSnackBar(
-        GlobalConstants.unauthorized, 
-        GlobalConstants.error
-      );
+      // this.snackBar.openSnackBar(
+      //   GlobalConstants.unauthorized, 
+      //   GlobalConstants.error
+      // );
       this.router.navigate(['/']);
     }
     

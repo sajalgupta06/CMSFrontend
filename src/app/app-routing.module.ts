@@ -10,13 +10,13 @@ const routes: Routes = [
     path: 'cafe',
     component: FullComponent,
     children: [
+      // {
+      //   path: '',
+      //   redirectTo: '/cafe/dashboard',
+      //   pathMatch: 'full',
+      // },
       {
-        path: '',
-        redirectTo: '/cafe/dashboard',
-        pathMatch: 'full',
-      },
-      {
-        path: '',
+        path: 'dashboard',
         loadChildren: () =>
           import('./material-component/material.module').then(
             (m) => m.MaterialComponentsModule

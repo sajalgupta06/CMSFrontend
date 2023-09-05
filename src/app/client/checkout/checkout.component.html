@@ -1,11 +1,11 @@
 <div class="checkout-container">
- 
-  
-    <div *ngIf="this.cartService.cart.length>0">
-        <h1>Checkout</h1>
-        <table mat-table [dataSource]="this.cartService.cart" class="mat-elevation-z8">
 
-          <!--- Note that these columns can be defined in any order.
+
+  <div *ngIf="this.cartService.cart.length>0">
+    <h1>Checkout</h1>
+    <table mat-table [dataSource]="this.cartService.cart" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
 
           <ng-container matColumnDef="productName">
@@ -79,4 +79,4 @@
         No Item Added
         </div>
 
-  </div>
+</div>

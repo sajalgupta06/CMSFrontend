@@ -48,7 +48,7 @@ export class ManageOrderComponent implements OnInit {
 
        
         for (let index = 0; index <  resp.length; index++) {
-          resp[index].createdAt =  moment(resp[index].createdAt).format("hh:mm A , DD-MMM-YYYY")
+          resp[index].createdAt =  moment(resp[index].createdAt).format("DD-MMM-YYYY")
 
           
         }

@@ -45,7 +45,7 @@ const data = {
   orderedItems:this.cartService.cart,
   total:this.cartService.total,
   paymentMethod:this.selectedPaymentMethod,
-  createdAt: moment(),
+  createdAt: new Date(),
   orderStatus:"ACCEPTED",
   address:this.address
 }
